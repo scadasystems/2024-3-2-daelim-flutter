@@ -6,10 +6,11 @@ import 'package:daelim_project/enums/sso_enum.dart';
 import 'package:daelim_project/extensions/context_extension.dart';
 import 'package:daelim_project/helpers/storage_helper.dart';
 import 'package:daelim_project/models/auth_data.dart';
+import 'package:daelim_project/routes/app_screen.dart';
 import 'package:easy_extension/easy_extension.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
-// ignore: unused_import
 import 'package:http/http.dart' as http;
 
 class LoginScreen extends StatefulWidget {
@@ -22,6 +23,11 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   final _emailController = TextEditingController();
   final _pwController = TextEditingController();
+  final border = OutlineInputBorder(
+    borderRadius: BorderRadius.circular(0),
+    borderSide: BorderSide.none,
+  );
+
   bool _isObscure = true;
 
   @override
@@ -58,7 +64,6 @@ class _LoginScreenState extends State<LoginScreen> {
           content: Text(body),
         );
       }
-      return;
     }
 
     // NOTE: AuthData 로 변환
@@ -66,6 +71,8 @@ class _LoginScreenState extends State<LoginScreen> {
     await StorageHelper.setAuthData(authData);
     final savedAuthData = StorageHelper.authData;
     Log.green(savedAuthData);
+    if (mounted) context.goNamed(AppScreen.main.name);
+    return;
   }
 
   // NOTE: SSO 로그인 버튼
@@ -74,6 +81,7 @@ class _LoginScreenState extends State<LoginScreen> {
       case SsoEnum.google:
         context.showSnackBarText('구글 로그인 시작');
       case SsoEnum.apple:
+        context.showSnackBarText('준비 중인 기능입니다.');
       case SsoEnum.github:
         context.showSnackBarText('준비 중인 기능입니다.');
     }

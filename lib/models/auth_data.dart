@@ -43,8 +43,12 @@ class AuthData {
 
   String toJson() => json.encode(toMap());
 
-  factory AuthData.fromJson(String source) => AuthData.fromMap(json.decode(source) as Map<String, dynamic>);
+  factory AuthData.fromJson(String source) =>
+      AuthData.fromMap(json.decode(source) as Map<String, dynamic>);
+
+  get accessToken => null;
 
   @override
-  String toString() => 'AuthData(tokenType: $tokenType, token: $token, expiresAt: $expiresAt)';
+  String toString() =>
+      'AuthData(tokenType: $tokenType, token: $token, expiresAt: $expiresAt)';
 }
