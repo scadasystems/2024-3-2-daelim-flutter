@@ -40,7 +40,6 @@ doc/api/
 .pub-cache/
 .pub/
 coverage/
-lib/generated_plugin_registrant.dart
 # For library packages, don’t commit the pubspec.lock file.
 # Regenerating the pubspec.lock file lets you test your package against the latest compatible versions of its dependencies.
 # See https://dart.dev/guides/libraries/private-files#pubspeclock
@@ -143,18 +142,3 @@ Temporary Items
 # Ignore all local history of files
 .history
 .ionide
-
-### Web ###
-*.asp
-*.cer
-*.csr
-*.css
-*.htm
-*.html
-*.js
-*.jsp
-*.php
-*.rss
-*.wasm
-*.wat
-*.xhtml
