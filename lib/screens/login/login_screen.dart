@@ -71,7 +71,7 @@ class _LoginScreenState extends State<LoginScreen> {
     // TODO: 화면 이동
     Log.green(savedAuthData);
 
-    if (mounted) context.goNamed(AppScreen.main.name);
+    if (mounted) context.goNamed(AppScreen.users.name);
   }
 
   // NOTE: SSO 로그인 버튼
